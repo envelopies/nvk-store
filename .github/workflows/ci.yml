@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - github-ci
   pull_request:
 
 permissions:
@@ -32,3 +33,13 @@ jobs:
 
       - name: Linting affected apps
         run: npx nx affected --target=lint --parallel=3 --ci --base=origin/master
+
+      - name: Push to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          source: "dist/browser/*"
+          target: "html"
