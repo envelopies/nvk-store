@@ -34,6 +34,9 @@ jobs:
       - name: Linting affected apps
         run: npx nx affected --target=lint --parallel=3 --ci --base=origin/github-ci
 
+      - name: cho tut
+        run: ls -Aal; ls dist; ls dist/apps
+
       - name: Push to server
         uses: appleboy/scp-action@v1
         with:
