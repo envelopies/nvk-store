@@ -41,5 +41,5 @@ jobs:
           port: ${{ secrets.DEPLOY_PORT }}
           username: ${{ secrets.DEPLOY_USERNAME }}
           key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          source: "dist/browser/*"
+          source: "dist/apps/store/browser/*"
           target: "html"
