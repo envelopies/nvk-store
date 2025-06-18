@@ -29,10 +29,10 @@ jobs:
         run: npm install
 
       - name: Build affected apps
-        run: npx nx affected --target=build --parallel=3 --ci --base=origin/master
+        run: npx nx affected --target=build --parallel=3 --ci --base=origin/github-ci
 
       - name: Linting affected apps
-        run: npx nx affected --target=lint --parallel=3 --ci --base=origin/master
+        run: npx nx affected --target=lint --parallel=3 --ci --base=origin/github-ci
 
       - name: Push to server
         uses: appleboy/scp-action@v1
