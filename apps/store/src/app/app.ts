@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class App {
-  protected title = 'store 1';
+  protected title = 'store_';
 }
