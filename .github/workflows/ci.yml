@@ -31,7 +31,7 @@ jobs:
 
     - name: Build affected apps
       if: github.event_name == 'push'
-      run: npx nx affected --target=build --parallel=3 --ci --base=HEAD~1
+      run: npx nx affected --target=build --parallel=3 --ci --base=origin/github-ci --head=HEAD
 
     - name: Build all apps
       if: github.event_name == 'workflow_dispatch'
