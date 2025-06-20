@@ -30,7 +30,7 @@ jobs:
       run: npm ci
 
     - name: Build all apps
-      run: npx nx affected --target=build --parallel=3 --ci --base=origin/github-ci
+      run: npx nx affected --target=build --parallel=3 --base=origin/github-ci --no-cloud
 
     - name: Archive artifact
       uses: actions/upload-artifact@v4
