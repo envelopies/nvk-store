@@ -50,4 +50,4 @@ jobs:
         name: dist
     
     - name: Проверка папки
-      run: ls -Aal; ls -Aal dist; pwd
+      run: ls -Aal; ls -Aal apps; ls -Aal apps/store
