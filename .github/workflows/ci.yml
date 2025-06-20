@@ -48,3 +48,6 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: dist
+    
+    - name: Проверка папки
+      run: ls -Aal; ls -Aal dist; pwd
