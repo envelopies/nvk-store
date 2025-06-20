@@ -58,3 +58,4 @@ jobs:
         key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
         source: "apps/store/browser/*"
         target: "html"
+        strip_components: 1
