@@ -48,6 +48,13 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: dist
-    
-    - name: Проверка папки
-      run: ls -Aal; ls -Aal apps; ls -Aal apps/store
+
+    - name: Push to server
+      uses: appleboy/scp-action@v1
+      with:
+        host: ${{ secrets.DEPLOY_HOST }}
+        port: ${{ secrets.DEPLOY_PORT }}
+        username: ${{ secrets.DEPLOY_USERNAME }}
+        key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+        source: "dist/apps/store/browser/*"
+        target: "html"
