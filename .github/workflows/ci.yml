@@ -31,8 +31,13 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Build all apps
+    - name: Build affected apps
+      if: github.event_name == 'push'
       run: npx nx affected --target=build --parallel=3 --base=HEAD~1 --no-cloud
+
+    - name: Build all apps
+      if: github.event_name == 'workflow_dispatch'
+      run: npx nx run-many --target=build --all --parallel=3 --no-cloud
 
     - name: Archive artifact
       uses: actions/upload-artifact@v4
@@ -58,6 +63,6 @@ jobs:
         port: ${{ secrets.DEPLOY_PORT }}
         username: ${{ secrets.DEPLOY_USERNAME }}
         key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-        source: "apps/store/browser/*"
+        source: "apps/*"
         target: "~/html"
-        strip_components: 3
+        strip_components: 1
