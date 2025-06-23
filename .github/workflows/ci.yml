@@ -31,13 +31,16 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Linting
+      run: npm run lint:affected
+
     - name: Build affected apps
       if: github.event_name == 'push'
-      run: npx nx affected --target=build --parallel=3 --base=HEAD~1 --no-cloud
+      run: npm run build:affected
 
     - name: Build all apps
       if: github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
-      run: npx nx run-many --target=build --all --parallel=3 --no-cloud
+      run: npm run build
 
     - name: Archive artifact
       uses: actions/upload-artifact@v4

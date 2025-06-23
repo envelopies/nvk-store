@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:store": "nx serve store"
+    "start:store": "nx serve store",
+    "lint:affected": "nx affected --target=lint --parallel=3 --base=origin/master",
+    "build:affected": "nx affected --target=build --parallel=3 --base=HEAD~1 --no-cloud",
+    "build": "nx run-many --target=build --all --parallel=3 --no-cloud"
   },
   "private": true,
   "dependencies": {
