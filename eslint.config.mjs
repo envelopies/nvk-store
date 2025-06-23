@@ -4,6 +4,7 @@ import parser from '@typescript-eslint/parser';
 import tseslint from 'typescript-eslint';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import prettier from 'eslint-plugin-prettier';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,7 +20,8 @@ export default [
     files: ['**/*.ts'],
     plugins: {
       '@angular-eslint': angularEslint,
-      '@typescript-eslint': tseslint.plugin
+      '@typescript-eslint': tseslint.plugin,
+      prettier: prettier,
     },
     languageOptions: {
       parser,
@@ -42,6 +44,19 @@ export default [
           ],
         },
       ],
+      '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        {
+          accessibility: 'explicit',
+          overrides: {
+            accessors: 'explicit',
+            constructors: 'no-public',
+            methods: 'explicit',
+            properties: 'explicit',
+            parameterProperties: 'explicit',
+          },
+        },
+      ],
       '@typescript-eslint/explicit-function-return-type': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
@@ -54,26 +69,30 @@ export default [
       '@angular-eslint/use-lifecycle-interface': 'error',
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
 
-      'no-restricted-imports': ['error', {
-        paths: [
-          {
-            name: '@angular/core',
-            importNames: ['Inject'],
-            message: 'Используй inject() вместо @Inject',
-          },
-        ],
-        patterns: [
-          {
-            group: ['../../../*'],
-            message: 'Слишком глубокий relative import. Используй alias через tsconfig.base.json',
-          },
-        ],
-      }],
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@angular/core',
+              importNames: ['Inject'],
+              message: 'Используй inject() вместо @Inject',
+            },
+          ],
+          patterns: [
+            {
+              group: ['../../../*'],
+              message: 'Слишком глубокий relative import. Используй alias через tsconfig.base.json',
+            },
+          ],
+        },
+      ],
       'max-lines': ['warn', 500],
       'max-lines-per-function': ['warn', { max: 75, skipComments: true, skipBlankLines: true }],
-      'complexity': ['warn', 10],
+      complexity: ['warn', 10],
       'no-console': 'error',
       'no-debugger': 'error',
+      'prettier/prettier': 'error',
     },
   },
 ];
