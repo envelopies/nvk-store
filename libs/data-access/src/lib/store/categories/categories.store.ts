@@ -10,7 +10,7 @@ export class CategoriesStore {
   private readonly api = inject(CategoriesApi);
   private readonly filters$ = new ReplaySubject<void>(1);
 
-  public readonly categories$ = toSignal(
+  public readonly categories = toSignal(
     this.filters$.pipe(
       switchMap(() =>
         this.api
