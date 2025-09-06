@@ -61,7 +61,30 @@ export default [
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-      '@typescript-eslint/member-ordering': 'error',
+      '@typescript-eslint/member-ordering': [
+        'error',
+        {
+          default: {
+            memberTypes: [
+              'signature',
+              'public-static-field',
+              'protected-static-field',
+              'private-static-field',
+              'public-static-method',
+              'protected-static-method',
+              'private-static-method',
+              'private-field',
+              'protected-field',
+              'public-field',
+              'constructor',
+              'public-method',
+              'protected-method',
+              'private-method',
+            ],
+            order: 'as-written',
+          },
+        },
+      ],
       '@typescript-eslint/prefer-readonly': 'error',
 
       '@angular-eslint/component-class-suffix': ['error', { suffixes: ['Component'] }],
@@ -69,24 +92,7 @@ export default [
       '@angular-eslint/use-lifecycle-interface': 'error',
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
 
-      'no-restricted-imports': [
-        'error',
-        {
-          paths: [
-            {
-              name: '@angular/core',
-              importNames: ['Inject'],
-              message: 'Используй inject() вместо @Inject',
-            },
-          ],
-          patterns: [
-            {
-              group: ['../../../*'],
-              message: 'Слишком глубокий relative import. Используй alias через tsconfig.base.json',
-            },
-          ],
-        },
-      ],
+      'no-restricted-imports': 'error',
       'max-lines': ['warn', 500],
       'max-lines-per-function': ['warn', { max: 75, skipComments: true, skipBlankLines: true }],
       complexity: ['warn', 10],

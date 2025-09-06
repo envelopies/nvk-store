@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nvk-store/core": ["libs/core/src/index.ts"],
+      "@nvk-store/data-access": ["libs/data-access/src/index.ts"],
+      "@nvk-store/products": ["data-access/src/index.ts"]
+    }
   },
   "include": ["apps/**/*", "libs/**/*"],
   "exclude": ["node_modules", "tmp"]

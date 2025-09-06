@@ -21,7 +21,9 @@
             "input": "apps/store/public"
           }
         ],
-        "styles": ["apps/store/src/styles.scss"]
+        "styles": [
+          "apps/store/src/styles.scss"
+        ]
       },
       "configurations": {
         "production": {
