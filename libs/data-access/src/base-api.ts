@@ -2,11 +2,11 @@ import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@nvk-store/core';
+import { IFilter } from './lib/interfaces/filters.interface';
 
 export class BaseAPI<T extends { id: string }> {
   private readonly endpoint: string;
-
-  protected readonly http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
 
   constructor(endpoint: string) {
     this.endpoint = endpoint;
@@ -20,8 +20,8 @@ export class BaseAPI<T extends { id: string }> {
     return this.http.delete<void>(`${environment.apiUrl}/${this.endpoint}/${id}`);
   }
 
-  public getAll(): Observable<T[]> {
-    return this.http.get<T[]>(`${environment.apiUrl}/${this.endpoint}`);
+  public getAll(filters?: Partial<IFilter>): Observable<T[]> {
+    return this.http.get<T[]>(`${environment.apiUrl}/${this.endpoint}`, { params: filters });
   }
 
   public getById(id: string): Observable<T> {
