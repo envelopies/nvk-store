@@ -26,7 +26,7 @@ export default [
     languageOptions: {
       parser,
       parserOptions: {
-        project: ['./tsconfig.base.json'],
+        project: ['./tsconfig.base.json', 'libs\UI\.storybook\tsconfig.json'],
         tsconfigRootDir: __dirname,
       },
     },
