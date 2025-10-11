@@ -17,7 +17,7 @@
     "paths": {
       "@nvk-store/UI": ["libs/UI/src/index.ts"],
       "@nvk-store/core": ["libs/core/src/index.ts"],
-      "@nvk-store/data-access": ["libs/data-access/src/index.ts"],
+      "@nvk-store/data-access": ["libs/data-access/src/index.ts"]
     }
   },
   "include": ["apps/**/*", "libs/**/*"],
