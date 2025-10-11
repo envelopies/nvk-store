@@ -28,4 +28,15 @@ export const Primary: Story = {
     theme: 'green',
     disabled: false,
   },
+  render: (args) => ({
+    props: args,
+    template: `
+      <n-button
+        [variant]="variant"
+        [theme]="theme"
+        [disabled]="disabled"
+      >
+        Клик
+      </n-button>`,
+  }),
 };

@@ -1,0 +1,84 @@
+@import 'styles/constants.scss';
+
+@mixin input-mobile {
+  padding: 10px;
+  font-size: 18px;
+}
+
+@mixin input-desktop {
+  padding: 15px;
+  font-size: 24px;
+}
+
+@mixin icon-desktop {
+  font-size: 32px;
+}
+
+@mixin icon-mobile {
+  font-size: 20px;
+}
+
+.nvk-input {
+  @include input-desktop();
+  color: $gray;
+  cursor: text;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid $gray;
+  border-radius: $small-radius;
+  padding: 15px;
+  background: none;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+
+  &:focus-within {
+    color: $white;
+    border-color: $white;
+    outline: 0;
+  }
+
+  &__field {
+    color: $white;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+
+    &::placeholder {
+      color: $gray;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  &__icon-start,
+  &__icon-end {
+    @include icon-desktop();
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .nvk-input {
+    @include input-mobile();
+
+    &__icon-start,
+    &__icon-end {
+      @include icon-mobile();
+    }
+  }
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}

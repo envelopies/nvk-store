@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'n-button',
@@ -7,12 +7,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input()
-  public variant: 'outlined' | 'filled' = 'filled';
-
-  @Input()
-  public theme: 'white' | 'green' = 'green';
-
-  @Input()
-  public disabled = false;
+  public variant = input<'outlined' | 'filled'>('filled');
+  public theme = input<'white' | 'green'>('green');
+  public disabled = input(false);
 }

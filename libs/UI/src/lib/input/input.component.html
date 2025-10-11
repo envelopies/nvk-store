@@ -1,0 +1,19 @@
+<label class="nvk-input">
+  @if (iconStart()) {
+    <n-icon class="nvk-input__icon-start">
+      {{ iconStart() }}
+    </n-icon>
+  }
+  <input
+    [type]="type()"
+    class="nvk-input__field"
+    [placeholder]="placeholder()"
+    (input)="onInput($event)"
+    [value]="value"
+  >
+  @if (iconEnd()) {
+    <n-icon class="nvk-input__icon-end">
+      {{ iconEnd() }}
+    </n-icon>
+  }
+</label>

@@ -1,11 +1,11 @@
 <button
   type="button"
   class="nvk-btn btn-outline-white"
-  [disabled]="disabled"
-  [class.btn-outline-white]="variant === 'outlined' && theme === 'white'"
-  [class.btn-outline-green]="variant === 'outlined' && theme === 'green'"
-  [class.btn-white]="variant === 'filled' && theme === 'white'"
-  [class.btn-green]="variant === 'filled' && theme === 'green'"
+  [disabled]="disabled()"
+  [class.btn-outline-white]="variant() === 'outlined' && theme() === 'white'"
+  [class.btn-outline-green]="variant() === 'outlined' && theme() === 'green'"
+  [class.btn-white]="variant() === 'filled' && theme() === 'white'"
+  [class.btn-green]="variant() === 'filled' && theme() === 'green'"
 >
   <span class="nvk-btn__text">
     <ng-content/>

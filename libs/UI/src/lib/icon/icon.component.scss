@@ -1,5 +1,9 @@
 @import 'material-icons/iconfont/material-icons.css';
 
+:host {
+  display: flex;
+}
+
 .n-icon {
-  color: #FFFFFF;
+  font-size: inherit;
 }
