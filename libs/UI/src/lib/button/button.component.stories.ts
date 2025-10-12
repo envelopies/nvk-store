@@ -16,6 +16,10 @@ const meta: Meta<ButtonComponent> = {
     disabled: {
       control: { type: 'boolean' },
     },
+    size: {
+      control: { type: 'select' },
+      options: ['simple', 'small'],
+    },
   },
 };
 export default meta;
@@ -35,6 +39,7 @@ export const Primary: Story = {
         [variant]="variant"
         [theme]="theme"
         [disabled]="disabled"
+        [size]="size"
       >
         Клик
       </n-button>`,

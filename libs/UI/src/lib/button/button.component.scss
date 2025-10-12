@@ -1,12 +1,8 @@
-@import 'styles/constants.scss';
+@use 'styles/constants.scss' as constants;
 
 @mixin btn-mobile {
   padding: 8px 10px;
   font-size: 18px;
-
-  span {
-    display: none;
-  }
 }
 
 @mixin btn-desktop {
@@ -21,7 +17,7 @@
   cursor: pointer;
   height: fit-content;
   width: fit-content;
-  border-radius: $small-radius;
+  border-radius: constants.$small-radius;
   transition: filter 0.3s ease;
   display: flex;
   gap: 10px;
@@ -36,6 +32,10 @@
   }
 }
 
+.nvk-btn__mobile {
+  @include btn-mobile;
+}
+
 @mixin btn-outlined($color) {
   border-width: 2px;
   border-style: solid;
@@ -46,24 +46,24 @@
 }
 
 .btn-outline-white {
-  @include btn-outlined($white);
+  @include btn-outlined(constants.$white);
 }
 
 .btn-outline-green {
-  @include btn-outlined($green);
+  @include btn-outlined(constants.$green);
 }
 
 .btn-white {
-  color: $dark;
-  background-color: $white;
+  color: constants.$dark;
+  background-color: constants.$white;
 }
 
 .btn-green {
-  color: $white;
-  background-color: $green;
+  color: constants.$white;
+  background-color: constants.$green;
 }
 
-@media (max-width: $mobile-width) {
+@media (max-width: constants.$mobile-width) {
   .nvk-btn {
     @include btn-mobile();
   }
