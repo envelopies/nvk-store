@@ -1,0 +1,12 @@
+<div
+  class="option"
+  (click)="onClick()"
+>
+  {{ label() }}
+
+  @if (parent?.multiple()) {
+    <n-checkbox class="option__check" [(checked)]="selected"/>
+  } @else if (selected) {
+    <n-checkbox class="option__check" [(checked)]="selected"/>
+  }
+</div>
