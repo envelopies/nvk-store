@@ -1,0 +1,16 @@
+<label class="checkbox">
+  <input
+    type="checkbox"
+    [checked]="checked()"
+    (change)="onCheckboxChange($event)"
+    (blur)="onTouched()"
+  >
+    <span class="checkbox__selection">
+      @if (checked()) {
+        <n-icon>check</n-icon>
+      }
+    </span>
+    <span class="checkbox__text">
+      <ng-content></ng-content>
+    </span>
+</label>
