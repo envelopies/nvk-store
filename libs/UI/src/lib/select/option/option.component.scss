@@ -1,0 +1,12 @@
+@use 'styles/constants.scss' as constants;
+
+.option {
+  background: constants.$dark-gray;
+  color: constants.$white;
+  padding: 8px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background: constants.$gray;
+  }
+}
