@@ -1,7 +1,6 @@
 @import 'styles/constants.scss';
 
 .nvk-input {
-  @include input-desktop();
   color: $gray;
   cursor: text;
   display: flex;
@@ -21,6 +20,7 @@
   }
 
   &__field {
+    font-size: 24px;
     color: $white;
     background: $dark-gray;
     border: none;

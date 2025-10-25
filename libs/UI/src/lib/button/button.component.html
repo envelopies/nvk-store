@@ -8,7 +8,17 @@
   [class.btn-green]="variant() === 'filled' && theme() === 'green'"
   [class.nvk-btn__mobile]="size() === 'small'"
 >
+  @if (iconStart()) {
+    <n-icon class="nvk-btn__icon">
+      {{ iconStart() }}
+    </n-icon>
+  }
   <span class="nvk-btn__text">
     <ng-content/>
   </span>
+  @if (iconEnd()) {
+    <n-icon class="nvk-btn__icon">
+      {{ iconEnd() }}
+    </n-icon>
+  }
 </button>

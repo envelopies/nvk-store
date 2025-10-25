@@ -1,4 +1,6 @@
+@use 'styles/constants.scss' as constants;
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 * {
   margin: 0;
@@ -7,9 +9,13 @@
 }
 
 body {
-  height: 100vh;
-  background: black;
   font-family: 'Exo 2', sans-serif;
+  background-color: constants.$dark;
+  color: constants.$white;
+}
+
+body, html, app-root {
+  height: 100%;
 }
 
 .overlay-backdrop {
@@ -28,4 +34,12 @@ body {
     justify-content: center !important;
     align-items: flex-end !important;
   }
+}
+
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
