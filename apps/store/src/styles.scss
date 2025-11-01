@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/constants.scss' as constants;
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  background-color: constants.$dark;
+  color: constants.$white;
+}
+
+body, html, app-root {
+  height: 100%;
+}
+
+.overlay-backdrop {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.cdk-global-overlay-wrapper {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+
+@media (max-width: 600px) {
+  .cdk-global-overlay-wrapper {
+    justify-content: center !important;
+    align-items: flex-end !important;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}

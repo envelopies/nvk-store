@@ -1,0 +1,28 @@
+<div
+  class="select-container"
+  (click)="togglePanel()"
+>
+  <div class="select-container__value">
+    @if (displayValue) {
+      {{ displayValue }}
+    } @else {
+      <div class="select-container__placeholder">
+        {{ placeholder() }}
+      </div>
+    }
+  </div>
+
+  <n-icon class="arrow" [class.open]="isOpen()">
+    keyboard_arrow_up
+  </n-icon>
+</div>
+
+<ng-template #panel>
+  <div
+    class="options-panel"
+    animate.enter="enter"
+    animate.done="leave"
+  >
+    <ng-content></ng-content>
+  </div>
+</ng-template>

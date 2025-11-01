@@ -1,0 +1,31 @@
+$green: #4FB20C;
+$dark: #121212;
+$white: #FFFFFF;
+$gray: #9F9F9F;
+$dark-gray: #353535;
+$green-gradient: linear-gradient(93.82deg, #3A9000 0.95%, #79F625 146.55%);
+
+
+$small-radius: 8px;
+$large-radius: 10px;
+
+$laptop-width: 1100px;
+$mobile-width: 700px;
+
+@mixin input-mobile {
+  padding: 10px;
+  font-size: 18px;
+}
+
+@mixin input-desktop {
+  padding: 15px;
+  font-size: 24px;
+}
+
+@mixin icon-desktop {
+  font-size: 32px;
+}
+
+@mixin icon-mobile {
+  font-size: 20px;
+}

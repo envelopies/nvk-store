@@ -20,7 +20,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 2
+        fetch-depth: 0
 
     - name: Setup node
       uses: actions/setup-node@v4
@@ -29,15 +29,14 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm ci
+      run: npm install --legacy-peer-deps
+
+    - name: Linting
+      run: npm run lint:affected
 
     - name: Build affected apps
       if: github.event_name == 'push'
-      run: npx nx affected --target=build --parallel=3 --base=HEAD~1 --no-cloud
-
-    - name: Build all apps
-      if: github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
-      run: npx nx run-many --target=build --all --parallel=3 --no-cloud
+      run: npm run build:affected
 
     - name: Archive artifact
       uses: actions/upload-artifact@v4

@@ -1,0 +1,14 @@
+.main-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    width: 100%;
+    align-self: center;
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+}
