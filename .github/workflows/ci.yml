@@ -20,7 +20,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 2
+        fetch-depth: 0
 
     - name: Setup node
       uses: actions/setup-node@v4
@@ -37,10 +37,6 @@ jobs:
     - name: Build affected apps
       if: github.event_name == 'push'
       run: npm run build:affected
-
-    - name: Build all apps
-      if: github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
-      run: npm run build
 
     - name: Archive artifact
       uses: actions/upload-artifact@v4
