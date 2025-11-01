@@ -1,0 +1,23 @@
+@use 'styles/constants.scss' as consts;
+
+.category-card {
+  cursor: pointer;
+  height: clamp(180px, 10vw, 220px);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid consts.$green;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: clamp(20px, 3vw, 32px);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 13px 3px consts.$green;
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: consts.$mobile-width) {
+    background-size: cover;
+  }
+}

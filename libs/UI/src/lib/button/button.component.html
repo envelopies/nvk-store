@@ -7,6 +7,7 @@
   [class.btn-white]="variant() === 'filled' && theme() === 'white'"
   [class.btn-green]="variant() === 'filled' && theme() === 'green'"
   [class.nvk-btn__mobile]="size() === 'small'"
+  [class.icon-btn]="iconStart() || iconEnd()"
 >
   @if (iconStart()) {
     <n-icon class="nvk-btn__icon">

@@ -1,5 +1,50 @@
 <main-layout>
   <div class="store-main">
-
+    <section class="store-main__hero">
+      <h1 class="store-main__hero-title">
+        Покупай и продавай в НВК легко и удобно
+      </h1>
+      <p class="store-main__hero-description">
+        Найди все, что нужно. Больше никакого хаоса в чатах — только удобный поиск.
+        Сделай жизнь в кампусе комфортнее вместе с нами!
+      </p>
+      <div class="store-main__hero-actions">
+        <n-button
+          theme="white"
+        >
+          Перейти к товарам
+        </n-button>
+        <n-button
+          variant="outlined"
+          theme="white"
+        >
+          Стать продавцом
+        </n-button>
+      </div>
+    </section>
+    <section class="store-main__categories section">
+      <h2 class="section__title">
+        Категории
+      </h2>
+      <div class="store-main__categories-list">
+        @for (category of categories(); track category.id) {
+          <category-card [category]="category" />
+        }
+      </div>
+    </section>
+    <section class="store-main__products section">
+      <h2 class="section__title">
+        Подборка товаров
+      </h2>
+      <div class="store-main__products-list">
+      </div>
+    </section>
+    <section class="store-main__sellers section">
+      <h2 class="section__title">
+        Популярные продавцы
+      </h2>
+      <div class="store-main__sellers-list">
+      </div>
+    </section>
   </div>
 </main-layout>

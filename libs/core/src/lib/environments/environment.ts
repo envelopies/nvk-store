@@ -1,3 +1,4 @@
 export const environment = {
-  apiUrl: 'https://nvk1.store/api/v1',
+  apiUrl: 'https://kljmo-sjunq.fun/api/v1',
+  assetsUrl: 'https://kljmo-sjunq.fun',
 };

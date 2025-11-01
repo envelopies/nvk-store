@@ -2,7 +2,7 @@
 
 @mixin btn-mobile {
   padding: 8px 10px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 @mixin btn-desktop {
@@ -73,12 +73,14 @@
     @include btn-mobile();
     gap: 0;
 
-    &__text {
-      display: none;
-    }
-
     &__icon {
       font-size: 18px;
+    }
+  }
+
+  .icon-btn {
+    .nvk-btn__text {
+      display: none;
     }
   }
 }
