@@ -52,7 +52,7 @@ export class SelectComponent<T> implements ControlValueAccessor, AfterContentIni
   public isOpen = signal(false);
 
   public openedChange = output<boolean>();
-  public panelTemplate = viewChild<TemplateRef<any>>('panel');
+  public panelTemplate = viewChild.required<TemplateRef<unknown>>('panel');
 
   @ContentChildren(OptionComponent)
   public options!: QueryList<OptionComponent<T>>;
@@ -81,7 +81,7 @@ export class SelectComponent<T> implements ControlValueAccessor, AfterContentIni
     this.markSelectedOptions();
   }
 
-  public registerOnChange(fn: (value: any) => void): void {
+  public registerOnChange(fn: (value: T | T[]) => void): void {
     this.onChange = fn;
   }
 
@@ -90,6 +90,7 @@ export class SelectComponent<T> implements ControlValueAccessor, AfterContentIni
   }
 
   public togglePanel(): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     this.overlayRef ? this.close() : this.open();
   }
 
@@ -144,7 +145,7 @@ export class SelectComponent<T> implements ControlValueAccessor, AfterContentIni
       width: hostElement.offsetWidth,
     });
 
-    const portal = new TemplatePortal(this.panelTemplate()!, this.vcr);
+    const portal = new TemplatePortal(this.panelTemplate(), this.vcr);
     this.overlayRef.attach(portal);
     this.openedChange.emit(true);
     this.isOpen.set(true);
@@ -169,6 +170,8 @@ export class SelectComponent<T> implements ControlValueAccessor, AfterContentIni
     });
   }
 
-  private onChange: (value: any) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  private onChange: (value: T | T[]) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouched: () => void = () => {};
 }

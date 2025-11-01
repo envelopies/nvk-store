@@ -38,14 +38,17 @@ export class CheckboxComponent implements ControlValueAccessor {
     this.onChange(value);
   }
 
-  public onCheckboxChange(event: any): void {
-    this.setChecked(event.target.checked);
+  public onCheckboxChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.setChecked(target.checked);
   }
 
   public onTouched(): void {
     this._onTouched();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private _onTouched: () => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onChange: (value: boolean) => void = () => {};
 }

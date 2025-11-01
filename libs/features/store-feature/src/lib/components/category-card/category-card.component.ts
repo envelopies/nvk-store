@@ -9,6 +9,7 @@ import { environment } from '@nvk-store/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryCardComponent {
-  public category = input.required<Category>();
   protected readonly environment = environment;
+
+  public category = input.required<Category>();
 }

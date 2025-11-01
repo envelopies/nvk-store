@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { SelectComponent } from '../select.component';
 import { CheckboxComponent } from '../../checkbox/checkbox.component';
 
@@ -8,6 +8,7 @@ import { CheckboxComponent } from '../../checkbox/checkbox.component';
   styleUrls: ['./option.component.scss'],
   standalone: true,
   imports: [CheckboxComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OptionComponent<T> {
   public parent?: SelectComponent<T>;

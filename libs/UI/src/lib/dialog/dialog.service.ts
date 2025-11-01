@@ -8,6 +8,7 @@ import { DialogContainerComponent } from './dialog-container/dialog-container.co
 import { take } from 'rxjs';
 
 export interface DialogConfig {
+  // eslint-disable-next-line
   data?: any;
 }
 
@@ -44,7 +45,7 @@ export class DialogService {
     overlayRef
       .backdropClick()
       .pipe(take(1))
-      .subscribe((event) => {
+      .subscribe(() => {
         dialogRef.close();
       });
 
