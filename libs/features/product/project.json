@@ -1,7 +1,7 @@
 {
-  "name": "store-feature",
+  "name": "product",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/features/store-feature/src",
+  "sourceRoot": "libs/features/product/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
@@ -10,8 +10,8 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/features/store-feature/jest.config.ts",
-        "tsConfig": "libs/features/store-feature/tsconfig.spec.json"
+        "jestConfig": "libs/features/product/jest.config.ts",
+        "tsConfig": "libs/features/product/tsconfig.spec.json"
       }
     },
     "lint": {
