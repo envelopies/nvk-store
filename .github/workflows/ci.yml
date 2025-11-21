@@ -35,7 +35,6 @@ jobs:
       run: npm run lint:affected
 
     - name: Build affected apps
-      if: github.event_name == 'push'
       run: npm run build:affected
 
     - name: Archive artifact
