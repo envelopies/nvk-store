@@ -6,7 +6,7 @@ import { IFilter } from './lib/interfaces/filters.interface';
 
 export class BaseAPI<T extends { id: string }> {
   private readonly endpoint: string;
-  private readonly http = inject(HttpClient);
+  protected readonly http = inject(HttpClient);
 
   constructor(endpoint: string) {
     this.endpoint = endpoint;

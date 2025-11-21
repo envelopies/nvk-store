@@ -28,15 +28,24 @@
       </h2>
       <div class="store-main__categories-list">
         @for (category of categories(); track category.id) {
-          <category-card [category]="category" />
+          <store-category-card [category]="category" />
         }
       </div>
     </section>
     <section class="store-main__products section">
-      <h2 class="section__title">
-        Подборка товаров
-      </h2>
+      <div class="section__head">
+        <h2 class="section__title">
+          Подборка товаров
+        </h2>
+        <button class="section__head-action">
+          <span>Все товары</span>
+          <n-icon [size]="28">chevron_right</n-icon>
+        </button>
+      </div>
       <div class="store-main__products-list">
+        @for (product of productSelection(); track product.id) {
+          <product-card [product]="product"/>
+        }
       </div>
     </section>
     <section class="store-main__sellers section">
@@ -44,6 +53,11 @@
         Популярные продавцы
       </h2>
       <div class="store-main__sellers-list">
+        @for (item of [1, 2, 3, 4, 5, 6]; track item) {
+          <div class="store-main__sellers-item">
+            литовкин
+          </div>
+        }
       </div>
     </section>
   </div>

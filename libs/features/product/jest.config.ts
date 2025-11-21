@@ -1,8 +1,8 @@
 export default {
-  displayName: 'store-feature',
+  displayName: 'product',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/libs/features/store-feature',
+  coverageDirectory: '../../../coverage/libs/features/product',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

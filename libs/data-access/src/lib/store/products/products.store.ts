@@ -19,6 +19,11 @@ export class ProductsStore {
     shareReplay(1),
   );
 
+  public readonly productsSelection$ = this.api.getProductsSelection().pipe(
+    map((products) => products.map((product) => new Product(product))),
+    shareReplay(1),
+  );
+
   public deleteProduct(id: string): Observable<void> {
     return this.api.delete(id).pipe(finalize(() => this.reload()));
   }
